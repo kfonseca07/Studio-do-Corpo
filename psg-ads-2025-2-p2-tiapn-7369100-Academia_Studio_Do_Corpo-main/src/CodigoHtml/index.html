@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Studio do Corpo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CodigoCSS/login.css">
+    <link rel="icon" href="/src/Imagens/Logo.png" type="image/x-icon">
+</head>
+<body>
+    
+    <header id="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="/src/Imagens/Logo.png" alt="Logo Studio do Corpo" class="header-logo">
+            </div>
+            <nav class="main-nav d-none d-md-flex">
+                <a href="/CodigoHtml/HomePage.html">Início</a>
+                <a href="#">Sobre</a>
+                <a href="#">Serviços</a>
+                <a href="#" class="btn-contato">Contato</a>
+            </nav>
+            <div class="mobile-menu-toggle d-md-none">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+                    <span class="navbar-toggler-icon">≡</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu Studio do Corpo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="mobile-nav d-flex flex-column">
+                <a href="/CodigoHtml/HomePage.html">Início</a>
+                <a href="#">Sobre</a>
+                <a href="#">Serviços</a>
+                <a href="#" class="btn-contato-mobile">Contato</a>
+            </nav>
+        </div>
+    </div>
+
+    
+    <main class="login-main">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>Bem-vindo ao Studio do Corpo</h2>
+                    <p>Faça login para acessar sua conta</p>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Usuário ou E-mail</label>
+                        <input type="text" id="username" name="username" required placeholder="Digite seu usuário ou e-mail">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember">
+                            <span>Lembrar-me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Esqueci minha senha</a>
+                    </div>
+
+                    <button type="submit" class="login-btn">Entrar</button>
+
+                    <div class="login-divider">
+                        <span>ou</span>
+                    </div>
+
+                    <div class="user-type-selection">
+                        <button type="button" class="user-type-btn active" data-type="aluno">
+                            👤 Sou Aluno
+                        </button>
+                        <button type="button" class="user-type-btn" data-type="personal">
+                            💪 Sou Personal
+                        </button>
+                    </div>
+                </form>
+
+                <div class="login-footer">
+                    <p>Não tem uma conta? <a href="#">Solicitar acesso</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <footer id="main-footer">
+        <h2>Contato e Horário</h2>
+        <p>📞 Telefone: <span class="contact-phone">31 3432-3500</span></p> 
+        <p>🕒 Segunda a sexta: 5h30 às 22h | Sábado e domingo: 8h às 12h</p>
+        <p>© 2025 - Todos os direitos reservados | Studio do Corpo</p>
+    </footer>
+
+    <script src="../CodigoJS/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
