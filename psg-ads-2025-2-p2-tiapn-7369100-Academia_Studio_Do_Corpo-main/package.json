@@ -1,0 +1,31 @@
+{
+  "name": "psg-ads-2025-2-p2-tiapn-7369100-academia_studio_do_corpo",
+  "version": "1.0.0",
+  "description": "ACADEMIA STUDIO DO CORPO",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/CodigoJS/PerfilAluno.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICEI-PUC-Minas-PSG-ADS-TI/psg-ads-2025-2-p2-tiapn-7369100-Academia_Studio_Do_Corpo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ICEI-PUC-Minas-PSG-ADS-TI/psg-ads-2025-2-p2-tiapn-7369100-Academia_Studio_Do_Corpo/issues"
+  },
+  "homepage": "https://github.com/ICEI-PUC-Minas-PSG-ADS-TI/psg-ads-2025-2-p2-tiapn-7369100-Academia_Studio_Do_Corpo#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3",
+    "sequelize": "^6.37.7"
+  }
+}

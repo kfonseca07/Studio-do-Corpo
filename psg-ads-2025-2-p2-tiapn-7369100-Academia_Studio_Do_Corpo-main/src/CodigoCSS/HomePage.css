@@ -1,0 +1,517 @@
+/* ---------- RESET E GERAL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  color: #262626;
+}
+
+/* ---------- CABEÇALHO DO PERFIL ALUNO ---------- */
+/* Variáveis de Cores */
+:root {
+  --color-dark-bg: #00010D;
+  --color-dark-secondary: #262626;
+  --color-accent: #FFB600;
+  --color-light-bg: #F7F7F7;
+  --color-white: #FFFFFF;
+  --color-text-secondary: #AAAAAA;
+}
+
+header {
+  background-color: #00010d;
+  padding: 10px 40px;
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f7f7f7;
+  height: 80px;
+  position: relative;
+}
+
+/* LOGO */
+.logo img {
+  height: 60px;
+  width: auto;
+}
+
+/* ----- MENU DESKTOP (visível apenas em telas maiores) ----- */
+.nav-links.desktop-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin-left: auto;
+  margin-top: 1px;
+  margin-right: 30px;
+}
+
+.nav-links.desktop-menu li a {
+  text-decoration: none;
+  color: #f7f7f7;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav-links.desktop-menu li a:hover {
+  color: #ffb600;
+}
+
+.nav-links.desktop-menu li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 2px;
+}
+
+.nav-links.desktop-menu li a:hover::after {
+  width: 80%;
+}
+
+/* ----- BOTÃO DO MENU SANDUÍCHE (sempre visível) ----- */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.menu-btn:hover {
+  color: #ffb600;
+  transform: scale(1.1);
+}
+
+/* ===== MENU LATERAL DESLIZANTE ===== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #00010d;
+  padding: 25px;
+  color: white;
+  transition: right 0.3s ease;
+  z-index: 9999;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+/* Botão de fechar */
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 20px;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #ffb600;
+  transform: scale(1.1);
+}
+
+/* Título do menu */
+.menu-title {
+  color: #ffb600;
+  font-size: 1.5em;
+  margin-bottom: 70px;
+  padding-top: 18px;
+}
+
+/* Lista do menu lateral */
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.side-menu ul li {
+  margin: 15px 0;
+}
+
+.side-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  white-space: nowrap;
+  display: inline-block;
+  padding: 5px 0;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.side-menu ul li a:hover {
+  color: #ffb600;
+  transform: translateX(5px);
+}
+
+/* Divisor no menu */
+.menu-divider {
+  border-top: 1px solid #444;
+  margin: 20px 0;
+  padding-top: 20px;
+}
+
+/* ===== SEÇÃO PRINCIPAL carrosel + banners 3d ===== */
+.banner-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  max-width: 1500px;
+  margin: 60px auto;
+  gap: 30px;
+}
+
+/* ===== BANNERS LATERAIS ===== */
+.side-banner {
+  width: 320px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 18px;
+  background-color: #111;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.side-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left-banner {
+  transform: perspective(1000px) rotateY(20deg) translateX(-20px);
+}
+
+.right-banner {
+  transform: perspective(1000px) rotateY(-20deg) translateX(20px);
+}
+
+.side-banner:hover {
+  transform: perspective(1000px) rotateY(0deg) scale(1.05);
+  box-shadow: 0 10px 35px rgba(255, 200, 0, 0.4);
+}
+
+/* ===== CARROSSEL CENTRAL CORRIGIDO ===== */
+.carousel {
+  position: relative;
+  width: 850px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-images img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* ===== BOTÕES DO CARROSSEL ===== */
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+.carousel button:hover {
+  background: rgba(255, 200, 0, 0.8);
+}
+
+.carousel .prev {
+  left: 20px;
+}
+
+.carousel .next {
+  right: 20px;
+}
+
+/* ---------- TITULOS DE SEÇÃO ---------- */
+.section-title {
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  color: #00010d;
+  margin: 30px 0 20px;
+}
+
+/* ---------- CARDS ---------- */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px 40px;
+}
+
+.card {
+  background-color: #ffffff;
+  width: 270px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 30px 20px;
+  transition: all 0.3s;
+  border-top: 6px solid #ffb600;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Card destaque */
+.card-plano.destaque {
+  background-color: #00010d;
+  color: #fff;
+  border-top: 6px solid #ffb600;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card .valor {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffb600;
+  margin-bottom: 15px;
+}
+
+.card ul {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.card ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.card button {
+  background-color: #ffb600;
+  color: #00010d;
+  border: none;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  background-color: #dca200;
+  transform: scale(1.05);
+}
+
+/* ---------- RODAPÉ ---------- */
+footer {
+  background-color: #00010d;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* Tablet e Mobile (até 992px) */
+@media (max-width: 992px) {
+  /* Esconde menu desktop em telas menores */
+  .nav-links.desktop-menu {
+      display: none;
+  }
+  
+  /* Ajustes no header para mobile */
+  header {
+      padding: 10px 20px;
+  }
+
+  /* Ajustes do banner section para tablet */
+  .banner-section {
+      flex-direction: column;
+      gap: 30px;
+      margin: 30px auto;
+  }
+  
+  .side-banner {
+      width: 90%;
+      max-width: 400px;
+      height: 250px;
+      transform: none !important;
+  }
+  
+  .side-banner:hover {
+      transform: scale(1.05) !important;
+  }
+  
+  .carousel {
+      width: 90%;
+      max-width: 600px;
+      height: 300px;
+  }
+  
+  .carousel-images img {
+      height: 300px;
+  }
+  
+  /* Ajustes dos cards */
+  .cards {
+      padding: 20px;
+      gap: 20px;
+  }
+  
+  .card {
+      width: calc(50% - 20px);
+      min-width: 250px;
+  }
+}
+
+/* Mobile pequeno (até 576px) */
+@media (max-width: 576px) {
+  header {
+      padding: 10px 15px;
+  }
+  
+  /* Menu lateral menor em telas muito pequenas */
+  .side-menu {
+      width: 280px;
+  }
+
+  /* Ajustes do banner section para mobile */
+  .banner-section {
+      margin: 20px auto;
+      gap: 20px;
+  }
+  
+  .side-banner {
+      height: 180px;
+  }
+  
+  .carousel {
+      height: 200px;
+  }
+  
+  .carousel-images img {
+      height: 200px;
+  }
+  
+  .carousel button {
+      padding: 8px 12px;
+      font-size: 16px;
+  }
+  
+  /* Ajustes dos cards para mobile */
+  .cards {
+      padding: 15px;
+      gap: 15px;
+  }
+  
+  .card {
+      width: 100%;
+      padding: 25px 15px;
+  }
+  
+  .section-title {
+      font-size: 24px;
+      margin: 20px 0 15px;
+  }
+}
+
+/* Mobile Muito Pequeno (até 360px) */
+@media (max-width: 360px) {
+  header {
+      padding: 5px 10px;
+  }
+  
+  .side-menu {
+      width: 260px;
+      padding: 20px 15px;
+  }
+  
+  .side-menu ul li a {
+      font-size: 16px;
+  }
+  
+  .menu-title {
+      font-size: 1.3rem;
+      margin-bottom: 50px;
+  }
+  
+  /* Ajustes finos para telas muito pequenas */
+  .carousel {
+      height: 180px;
+  }
+  
+  .carousel-images img {
+      height: 180px;
+  }
+  
+  .side-banner {
+      height: 150px;
+  }
+  
+  .card {
+      padding: 20px 12px;
+  }
+  
+  .card h3 {
+      font-size: 20px;
+  }
+  
+  .card .valor {
+      font-size: 22px;
+  }
+}

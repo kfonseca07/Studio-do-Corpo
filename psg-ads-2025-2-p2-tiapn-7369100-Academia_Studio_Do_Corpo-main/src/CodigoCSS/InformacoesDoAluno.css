@@ -1,0 +1,135 @@
+:root {
+    --color-dark-bg: #00010D;
+    --color-dark-secondary: #262626;
+    --color-accent: #FFB600;
+    --color-light-bg: #F7F7F7;
+    --color-white: #FFFFFF;
+    --color-text-secondary: #AAAAAA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-light-bg);
+    color: var(--color-dark-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-header {
+    background-color: var(--color-dark-bg);
+    color: var(--color-white);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    height: 80px;
+    width: auto;
+}
+
+.main-nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    margin-left: 25px;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--color-accent);
+}
+
+.btn-contato {
+    background-color: var(--color-accent);
+    color: var(--color-dark-bg) !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-contato:hover {
+    background-color: #e6a300;
+}
+
+.mobile-nav a {
+    color: var(--color-dark-bg);
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-light-bg);
+}
+
+.content-wrapper {
+    flex: 1;
+    padding: 20px 5%;
+}
+
+.profile-card {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- FOTO DO ALUNO (CORRIGIDA) ---- */
+.foto-aluno {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid var(--color-accent);
+    object-fit: cover;
+    margin-right: 30px;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 768px) {
+    .foto-aluno {
+        width: 110px;
+        height: 110px;
+        margin: 0 auto 20px;
+    }
+
+    .profile-card {
+        text-align: center;
+    }
+}
+
+.bio-section h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#main-footer {
+    background-color: var(--color-dark-bg);
+    color: var(--color-white);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+#main-footer p {
+    color: var(--color-text-secondary);
+}
+
+.contact-phone {
+    color: var(--color-accent);
+    font-weight: bold;
+}

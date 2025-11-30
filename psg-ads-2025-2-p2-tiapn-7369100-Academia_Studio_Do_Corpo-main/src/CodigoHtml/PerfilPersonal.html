@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Personal Trainer</title>
+    <link rel="stylesheet" href="/src/CodigoCSS/PerfilPersonal.css">
+    <link rel="icon" href="/src/Imagens/Logo.png" type="image/x-icon">
+</head>
+<body>
+   <header>
+    <nav class="navbar" id="inicio">
+      <div class="logo">
+        <a href="/src/CodigoHtml/HomePage.html">
+            <img src="/src/Imagens/Logo.png" alt="Logo Studio do Corpo">
+        </a>
+      </div>
+      <ul class="nav-links desktop-menu">
+        <li><a href="/src/CodigoHtml/HomePage.html">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="https://www.instagram.com/fechadocomstudiodocorpo/" target="_blank">Instagram</a></li>
+      </ul>
+      <button class="menu-btn" id="menuBtn">≡</button>
+      <nav class="side-menu" id="sideMenu">
+        <button class="close-btn" id="closeMenu">×</button>
+        <h2 class="menu-title">Menu</h2>
+        <ul>
+          <li><a href="/src/CodigoHtml/PerfilAluno.html">Visualizar Perfil</a></li>
+          <li><a href="/ficha.html">Ficha de Treino</a></li>
+          <li><a href="/avaliacao.html">Avaliação Física</a></li>
+          <li class="menu-divider"></li>
+          <li><a href="/src/CodigoHtml/HomePage.html">Página Inicial</a></li>
+          <li><a href="https://www.instagram.com/fechadocomstudiodocorpo/" target="_blank">Nosso Instagram</a></li>
+        </ul>
+      </nav>
+    </nav>
+  </header>
+    
+    <main class="content-wrapper">
+        <aside id="sidebar-nav">
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <img id="personal-avatar" src="/src/Imagens/PerfilEstatico.png" alt="Foto de Perfil">
+                </div>  
+                <p id="personal-cref">CREF: --</p>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" id="btnVisualizarAlunos">Visualizar Alunos</button>
+                <button class="action-btn" id="btnCriarFicha">Criar Ficha</button>
+            </div>
+            <nav class="secondary-nav">
+                <a href="#">Especializações</a>
+                <a href="#">Horários</a>
+                <a href="#">Relatórios</a>
+            </nav>
+        </aside>
+
+        <section id="main-content">
+            <div class="profile-card">
+                <div class="info-header">
+                    <h3>INFORMAÇÕES GERAIS</h3>
+                    <button class="edit-btn">Editar</button> 
+                </div>
+                
+                <div class="personal-data">
+                    <p><strong>Nome:</strong> <span id="data-nome">...</span></p>
+                    <p><strong>E-mail:</strong> <span id="data-email">...</span></p>
+                    <p><strong>Telefone:</strong> <span id="data-telefone">...</span></p>
+                    <p><strong>Experiência:</strong> <span id="data-experiencia">...</span></p>
+                    <p><strong>Especialidades:</strong> <span id="data-especialidades">...</span></p>
+                </div>
+                
+                <hr>
+
+                <div class="bio-section">
+                    <h4>Biografia</h4>
+                    <p id="data-bio">Descrição dinâmica do Personal, focada em sua filosofia de treino e resultados.</p>
+                </div>
+
+                <div id="dynamic-content-area">
+                    <h4>Últimos Alunos Atendidos</h4>
+                    <ul id="aluno-list">
+                        </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <h2>Contato e Horário</h2>
+        <p>📞 Telefone: <span class="contact-phone">31 3432-3500</span></p> 
+        <p>🕒 Segunda a sexta: 5h30 às 22h | Sábado e domingo: 8h às 12h</p>
+        <p>© 2025 - Todos os direitos reservados | Studio do Corpo</p>
+    </footer>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn-modal">&times;</span> 
+            <h3>Editar Informações Gerais do Perfil</h3>
+            <form id="edit-profile-form">
+                
+                <div class="photo-upload-section">
+                    <label for="edit-photo">Foto de Perfil:</label>
+                    <img id="photo-preview" src="/src/Imagens/PerfilEstatico.png" alt="Prévia da Foto" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+                    <input type="file" id="edit-photo" accept="image/jpeg, image/png, image/gif">
+                </div>
+                <hr> 
+
+                <label for="edit-nome">Nome:</label>
+                <input type="text" id="edit-nome" required>
+
+                <label for="edit-email">E-mail:</label>
+                <input type="email" id="edit-email" required>
+                
+                <label for="edit-telefone">Telefone:</label>
+                <input type="text" id="edit-telefone">
+
+                <label for="edit-experiencia">Experiência (anos):</label>
+                <input type="number" id="edit-experiencia">
+
+                <label for="edit-bio">Biografia:</label>
+                <textarea id="edit-bio" rows="4"></textarea>
+
+                <button type="submit" class="action-btn save-btn">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+    <script src="/src/CodigoJS/PerfilPersonal.js"></script>
+</body>
+</html>

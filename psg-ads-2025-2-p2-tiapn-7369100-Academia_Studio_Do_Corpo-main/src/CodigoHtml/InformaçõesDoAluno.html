@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informações do Aluno</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../CodigoCSS/InformacoesDoAluno.css">
+  <link rel="icon" href="/src/Imagens/Logo.png" type="image/x-icon">
+</head>
+<body>
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="../Imagens/Logo.png" alt="Logo Studio do Corpo" class="header-logo">
+      </div>
+
+      <!-- Menu Desktop -->
+      <nav class="main-nav d-none d-md-flex">
+        <a href="../CodigoHtml/HomePage.html">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="https://www.instagram.com/fechadocomstudiodocorpo/" class="btn-contato">Instagram</a>
+      </nav>
+
+      <!-- Menu Mobile -->
+      <div class="mobile-menu-toggle d-md-none">
+        <button class="navbar-toggler" type="button" id="hamburger">☰</button>
+      </div>
+    </div>
+  </header>
+    <!-- Menu Mobile -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu Studio do Corpo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="mobile-nav d-flex flex-column">
+                <a href="#">Início</a>
+                <a href="#">Sobre</a>
+                <a href="#">Serviços</a>
+                <a href="#" class="btn-contato-mobile">Contato</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <main class="content-wrapper">
+        <section id="main-content">
+            <div class="profile-card">
+
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-3 text-center">
+                        <img id="aluno-avatar" class="foto-aluno" src="../Imagens/PerfilEstatico.png" alt="Foto de Perfil">
+                    </div>
+                    <div class="col-md-9">
+                        <h3 id="nome">Carregando...</h3>
+                        <p><strong>Matrícula:</strong> <span id="id">-</span></p>
+                        <p><strong>Telefone:</strong> <span id="telefone">-</span></p>
+                        <p><strong>E-mail:</strong> <span id="email">-</span></p>
+                        <p><strong>Plano:</strong> <span id="plano">-</span></p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="bio-section">
+                    <h4>Descrição do Aluno</h4>
+                    <p id="descricao">Carregando descrição...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer id="main-footer">
+        <h2>Contato e Horário</h2>
+        <p>📞 Telefone: <span class="contact-phone">31 3432-3500</span></p> 
+        <p>🕒 Segunda a sexta: 5h30 às 22h | Sábado e domingo: 8h às 12h</p>
+        <p>© 2025 - Todos os direitos reservados | Studio do Corpo</p>
+    </footer>
+
+    <script src="alunoservice.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário - Studio do Corpo</title>
+  <link rel="stylesheet" href="../CodigoCSS/Formulario.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="../Imagens/Logo.png" alt="Logo Studio do Corpo" class="header-logo">
+      </div>
+
+      <!-- Menu Desktop -->
+      <nav class="main-nav d-none d-md-flex">
+        <a href="../CodigoHtml/HomePage.html">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Serviços</a>
+        <a href="https://www.instagram.com/fechadocomstudiodocorpo/" class="btn-contato">Instagram</a>
+      </nav>
+
+      <!-- Menu Mobile -->
+      <div class="mobile-menu-toggle d-md-none">
+        <button class="navbar-toggler" type="button" id="hamburger">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="background-image"></div>
+
+    <div class="form-container">
+      <h2>Informações do aluno</h2>
+
+      <form class="cadastro-form">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+
+        <label for="celular">Celular:</label>
+        <input type="number" id="celular" name="celular" placeholder="Ex: 31912345678">
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" placeholder="Ex: 25">
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="aluno@gmail.com">
+
+        <label for="cpf">CPF:</label>
+        <input type="number" id="cpf" name="cpf" placeholder="Ex: 12345678901">
+
+        <label for="infoMedicas">Informações médicas:</label>
+        <textarea id="infoMedicas" name="infoMedicas" rows="4" placeholder="Descreva brevemente suas condições de saúde..."></textarea>
+
+        <button type="submit">Enviar informações</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="main-footer">
+    <h2>Contato e Horário</h2>
+    <p>📞 Telefone: 31 3432-3500</p>
+    <p>🕒 Segunda a sexta: 5h30 às 22h | Sábado e domingo: 8h às 12h</p>
+    <p>© 2025 - Todos os direitos reservados | Studio do Corpo</p>
+  </footer>
+
+  <script src="../CodigoJS/Formulario.js"></script>
+</body>
+</html>

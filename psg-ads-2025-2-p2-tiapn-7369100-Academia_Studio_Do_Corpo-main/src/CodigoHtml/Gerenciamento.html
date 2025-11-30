@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciamento - Studio do Corpo</title>
+  <link rel="stylesheet" href="../CodigoCSS/Gerenciamento.css" />
+</head>
+<body>
+<header>
+  <nav class="navbar" id="inicio">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="../Imagens/Logo.png" alt="Logo Studio do Corpo">
+    </div>
+
+    <!--  MENU AGORA FICA À DIREITA -->
+    <ul class="nav-links">
+      <li><a href="../CodigoHtml/HomePage.html">Início</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="https://www.instagram.com/fechadocomstudiodocorpo/" target="_blank">Instagram</a></li>
+    </ul>
+
+    <!-- BOTÃO DO MENU LATERAL -->
+    <button class="menu-btn" id="menuBtn">≡</button>
+
+    <!-- MENU LATERAL -->
+    <nav class="side-menu" id="sideMenu">
+      <button class="close-btn" id="closeMenu">×</button>
+      <h2 class="menu-title">Menu</h2>
+      <ul>
+        <li><a href="/CodigoHtml/PerfilAluno.html">👤 Visualizar Perfil</a></li>
+        <li><a href="/ficha.html">📄 Ficha de Treino</a></li>
+        <li><a href="/avaliacao.html">🧐 Avaliação Física</a></li>
+      </ul>
+    </nav>
+
+  </nav>
+</header>
+
+
+<!-- ======================= MENU DE ABAS (ATUALIZADO) ======================= -->
+<div class="aba-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="tab-alunos">Alunos</button>
+    <button class="tab-btn" data-tab="tab-carrossel">Carrossel</button>
+    <button class="tab-btn" data-tab="tab-banners">Banners 3D</button>
+    <button class="tab-btn" data-tab="tab-mensalidades">Mensalidades</button>
+    <button class="tab-btn" data-tab="tab-planos">Planos</button>
+    <button class="tab-btn" data-tab="tab-servicos">Serviços</button>
+  </div>
+</div>
+<!-- ======================================================================== -->
+
+
+  <main class="container">
+
+    <!-- ============================================================
+         ====================== ABA ALUNOS ==========================
+         ============================================================ -->
+    <div class="tab-content active" id="tab-alunos">
+
+      <h1>Painel de Gerenciamento</h1>
+
+      <section class="section-box">
+        <h2>Gerenciamento de Alunos</h2>
+        <button class="btn-salvar" onclick="toggleCriarAluno()">Criar Novo Aluno</button>
+
+        <input type="text" id="pesquisaAluno" placeholder="Pesquisar aluno..." 
+        style="margin:15px 0; padding:8px; width:100%; border-radius:8px; border:1px solid #ddd;">
+
+        <!-- FILTROS -->
+        <div id="filtros" style="display:flex; gap:15px; margin:15px 0; flex-wrap:wrap;">
+          
+          <select id="filtroStatus" style="padding:8px; border-radius:8px; border:1px solid #ddd;">
+            <option value="">Status (Todos)</option>
+            <option value="Ativo">Ativo</option>
+            <option value="Inativo">Inativo</option>
+          </select>
+
+          <select id="filtroPlano" style="padding:8px; border-radius:8px; border:1px solid #ddd;">
+            <option value="">Plano (Todos)</option>
+            <option value="Mensal">Mensal</option>
+            <option value="Trimestral">Trimestral</option>
+            <option value="Semestral">Semestral</option>
+            <option value="Anual">Anual</option>
+            <option value="Pacote Funcional">Pacote Funcional</option>
+          </select>
+
+          <select id="filtroIdade" style="padding:8px; border-radius:8px; border:1px solid #ddd;">
+            <option value="">Idade (Todas)</option>
+            <option value="menor25">Menos de 25</option>
+            <option value="25a35">25 a 35</option>
+            <option value="maior35">Maior que 35</option>
+          </select>
+
+        </div>
+
+        <!-- FORM CRIAR ALUNO -->
+        <div id="formCriarAluno" style="display:none; margin-top:20px; padding:15px; border:1px solid #ddd; border-radius:10px; background:#f9f9f9;">
+          <h3>Novo Aluno</h3>
+          <div class="cards-edicao">
+
+            <div class="card-edicao"><h3>Nome</h3><input type="text" id="novoNome"></div>
+            <div class="card-edicao"><h3>Idade</h3><input type="number" id="novoIdade"></div>
+
+            <div class="card-edicao">
+              <h3>Plano</h3>
+              <div id="novoPlanos" class="checkbox-group">
+                <label><input type="checkbox" value="Mensal"> Mensal</label>
+                <label><input type="checkbox" value="Trimestral"> Trimestral</label>
+                <label><input type="checkbox" value="Semestral"> Semestral</label>
+                <label><input type="checkbox" value="Anual"> Anual</label>
+                <label><input type="checkbox" value="Pacote Funcional"> Pacote Funcional</label>
+              </div>
+            </div>
+
+            <div class="card-edicao">
+              <h3>Status</h3>
+              <select id="novoStatus">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+              </select>
+            </div>
+
+            <div class="card-edicao"><h3>Login</h3><input type="text" id="novoLogin"></div>
+            <div class="card-edicao"><h3>Senha</h3><input type="password" id="novoSenha"></div>
+
+          </div>
+
+          <button class="btn-salvar" onclick="criarAluno()">Criar Aluno</button>
+        </div>
+
+        <!-- TABELA -->
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Idade</th>
+              <th>Plano</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaAlunos"></tbody>
+        </table>
+
+      </section>
+    </div>
+
+
+    <!-- ============================================================
+         ====================== ABA CARROSSEL =======================
+         ============================================================ -->
+    <div class="tab-content" id="tab-carrossel">
+
+      <section class="section-box">
+        <h2>Editar Carrossel</h2>
+        <form id="formCarrossel" class="form-section">
+          <div class="img-group">
+            <div class="img-item">
+              <label>Imagem 1</label>
+              <input type="file" id="img1" accept="image/*" />
+              <img id="preview1" class="preview" src="../Imagens/academia1.jpg" alt="Prévia 1">
+            </div>
+
+            <div class="img-item">
+              <label>Imagem 2</label>
+              <input type="file" id="img2" accept="image/*" />
+              <img id="preview2" class="preview" src="../Imagens/academia2.jpg" alt="Prévia 2">
+            </div>
+
+            <div class="img-item">
+              <label>Imagem 3</label>
+              <input type="file" id="img3" accept="image/*" />
+              <img id="preview3" class="preview" src="../Imagens/academia3.jpg" alt="Prévia 3">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-salvar">Salvar Carrossel</button>
+        </form>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================
+         ====================== ABA BANNERS 3D ======================
+         ============================================================ -->
+    <div class="tab-content" id="tab-banners">
+
+      <section class="section-box">
+        <h2>Editar Banners 3D</h2>
+        <form id="formBanners3D" class="form-section">
+          <div class="img-group">
+
+            <div class="img-item">
+              <label>Banner Esquerdo</label>
+              <input type="file" id="bannerEsquerdo" accept="image/*" />
+              <img id="previewEsquerdo" class="preview" src="../Imagens/3esquerda.jpg" alt="Banner Esquerdo">
+            </div>
+
+            <div class="img-item">
+              <label>Banner Direito</label>
+              <input type="file" id="bannerDireito" accept="image/*" />
+              <img id="previewDireito" class="preview" src="../Imagens/3direita.jpg" alt="Banner Direito">
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn-salvar">Salvar Banners 3D</button>
+        </form>
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================
+         ====================== ABA MENSALIDADES ====================
+         ============================================================ -->
+    <div class="tab-content" id="tab-mensalidades">
+
+      <section class="section-box">
+        <h2>Mensalidades</h2>
+
+        <div class="cards-edicao">
+          <div class="card-edicao">
+            <h3>Musculação 7x/semana</h3>
+            <input type="text" id="mensalidade1" value="R$ 90,00" />
+          </div>
+
+          <div class="card-edicao">
+            <h3>Musculação 3x/semana</h3>
+            <input type="text" id="mensalidade2" value="R$ 70,00" />
+          </div>
+
+          <div class="card-edicao">
+            <h3>Funcional 2x/semana</h3>
+            <input type="text" id="mensalidade3" value="R$ 110,00" />
+          </div>
+        </div>
+
+        <button class="btn-salvar" id="salvarValores">Salvar Mensalidades</button>
+
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================
+         ====================== ABA PLANOS ==========================
+         ============================================================ -->
+    <div class="tab-content" id="tab-planos">
+
+      <section class="section-box">
+        <h2>Planos</h2>
+
+        <div class="cards-edicao">
+
+          <div class="card-edicao">
+            <h3>Trimestral</h3>
+            <input type="text" id="plano1" value="R$ 255,00" />
+          </div>
+
+          <div class="card-edicao">
+            <h3>Semestral</h3>
+            <input type="text" id="plano2" value="R$ 510,00" />
+          </div>
+
+          <div class="card-edicao">
+            <h3>Anual</h3>
+            <input type="text" id="plano3" value="R$ 960,00" />
+          </div>
+
+          <div class="card-edicao">
+            <h3>Pacote Funcional</h3>
+            <input type="text" id="plano4" value="R$ 90,00" />
+          </div>
+
+        </div>
+
+        <button class="btn-salvar" id="salvarPlanos">Salvar Planos</button>
+
+      </section>
+
+    </div>
+
+
+    <!-- ============================================================
+         ====================== ABA SERVIÇOS ========================
+         ============================================================ -->
+    <div class="tab-content" id="tab-servicos">
+
+      <section class="section-box">
+        <h2>Serviços Adicionais</h2>
+
+        <div class="cards-edicao">
+
+          <div class="card-edicao">
+            <h3>Avaliação Física</h3>
+            <input type="text" id="servico1" value="R$ 65,00" />
+          </div>
+
+          <div class="card-edicao">
+            <h3>Inscrição</h3>
+            <input type="text" id="servico2" value="R$ 15,00" />
+          </div>
+
+          <div class="card-edicao">
+            <h3>Treino Avulso</h3>
+            <input type="text" id="servico3" value="R$ 20,00" />
+          </div>
+
+        </div>
+
+        <button class="btn-salvar" id="salvarServicos">Salvar Serviços</button>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+
+<!-- ---------- MODAL GERENCIAR ALUNO ---------- -->
+<div id="modalGerenciar" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+  <div class="modal-content gerenciar-modal">
+    <span class="close" onclick="fecharModal()">&times;</span>
+    <h2>Gerenciar Aluno</h2>
+    <input type="hidden" id="editId">
+
+    <div class="modal-grid">
+
+      <div class="modal-field">
+        <label>Nome</label>
+        <input type="text" id="editNome">
+      </div>
+
+      <div class="modal-field">
+        <label>Idade</label>
+        <input type="number" id="editIdade">
+      </div>
+
+      <div class="modal-field full-width">
+        <label>Plano</label>
+        <div id="editPlanos" class="checkbox-group">
+          <label><input type="checkbox" value="Mensal"> Mensal</label>
+          <label><input type="checkbox" value="Trimestral"> Trimestral</label>
+          <label><input type="checkbox" value="Semestral"> Semestral</label>
+          <label><input type="checkbox" value="Anual"> Anual</label>
+          <label><input type="checkbox" value="Pacote Funcional"> Pacote Funcional</label>
+        </div>
+      </div>
+
+      <div class="modal-field">
+        <label>Status</label>
+        <select id="editStatus">
+          <option value="Ativo">Ativo</option>
+          <option value="Inativo">Inativo</option>
+        </select>
+      </div>
+
+      <div class="modal-field">
+        <label>Login</label>
+        <input type="text" id="editLogin">
+      </div>
+
+      <div class="modal-field">
+        <label>Senha</label>
+        <input type="password" id="editSenha">
+      </div>
+
+    </div>
+
+    <button class="btn-salvar" onclick="salvarAlteracoesAluno()">Salvar Alterações</button>
+  </div>
+</div>
+
+
+  <footer>
+    <h2>Contato e Horário</h2>
+    <p>📞 Telefone: 31 3432-3500</p>
+    <p>🕒 Segunda a sexta: 5h30 às 22h | Sábado e domingo: 8h às 12h</p>
+    <p>© 2025 - Todos os direitos reservados | Studio do Corpo</p>
+  </footer>
+
+  <script src="../CodigoJS/Gerenciamento.js"></script>
+</body>
+</html>

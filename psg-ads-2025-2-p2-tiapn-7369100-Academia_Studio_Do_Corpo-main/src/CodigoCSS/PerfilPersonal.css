@@ -1,0 +1,496 @@
+/* Variáveis de Cores */
+:root {
+    --color-dark-bg: #00010D;       /* Fundo Principal Escuro */
+    --color-dark-secondary: #262626;   /* Fundo Secundário Cinza */
+    --color-accent: #FFB600;           /* Destaque/Ação (Amarelo) */
+    --color-light-bg: #F7F7F7;         /* Fundo Principal da Página */
+    --color-white: #FFFFFF;
+    --color-text-secondary: #AAAAAA;   /* Cinza Claro */
+}
+
+/* Base e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-light-bg);
+    color: var(--color-dark-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =============================================== */
+/* HEADER E NAVBAR (AJUSTADO PARA EXTREMOS)        */
+/* =============================================== */
+
+header {
+    background-color: #00010d;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.navbar {
+    width: 100%; /* Garante largura total */
+    max-width: 100%; /* Remove limites de centralização */
+    display: flex;
+    justify-content: space-between; /* Força Logo p/ Esquerda e Menu p/ Direita */
+    align-items: center;
+    color: #f7f7f7;
+    height: 80px;
+    padding: 0 30px; /* Reduzido para 30px para ficar mais próximo das bordas */
+    position: relative;
+}
+
+/* LOGO */
+.logo img {
+    height: 60px;
+    width: auto;
+    display: block; /* Remove espaços fantasmas */
+}
+
+/* ----- MENU CENTRAL (Links de Navegação) ----- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin-left: auto; /* Empurra tudo para a direita */
+    margin-right: 0;   /* Garante que não haja margem extra à direita */
+    position: static;
+    transform: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #f7f7f7;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ffb600;
+}
+
+/* ----- BOTÃO LATERAL (Hamburguer) ----- */
+.menu-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 20px; /* Espaço entre os links e o botão, se ambos aparecerem */
+    padding-right: 0; /* Garante que fique colado na direita */
+}
+
+.menu-btn:hover {
+    color: #ffb600;
+}
+
+/* ===== MENU LATERAL DESLIZANTE ===== */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100%;
+    background-color: #00010d;
+    padding: 25px;
+    color: white;
+    transition: right 0.3s ease;
+    z-index: 9999;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+/* Botão de fechar */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.close-btn:hover {
+    color: #ffb600;
+}
+
+/* Lista do menu lateral */
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+}
+
+.side-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    white-space: nowrap; 
+    display: inline-block; 
+}
+
+.side-menu ul li a:hover {
+    color: #ffb600;
+}
+
+/* --- Layout Principal --- */
+.content-wrapper {
+    display: flex;
+    flex: 1; 
+    padding: 20px 0;
+    width: 90%; 
+    margin: 0 auto;
+}
+
+/* --- Sidebar (Navegação Lateral) --- */
+#sidebar-nav {
+    flex: 0 0 250px; 
+    background-color: var(--color-dark-secondary);
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    color: var(--color-white);
+    height: fit-content;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    border: 3px solid var(--color-accent);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-dark-bg);
+    padding-bottom: 15px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    background-color: var(--color-accent);
+    color: var(--color-dark-bg);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #e6a300;
+}
+
+.secondary-nav a {
+    display: block;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-dark-bg);
+    transition: color 0.3s;
+}
+
+.secondary-nav a:hover {
+    color: var(--color-accent);
+}
+
+/* --- Conteúdo Principal (Card) --- */
+#main-content {
+    flex: 1; 
+}
+
+.profile-card {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 10px;
+}
+
+.edit-btn {
+    background: none;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-dark-bg);
+}
+
+.personal-data p {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* --- Rodapé --- */
+#main-footer {
+    background-color: var(--color-dark-bg);
+    color: var(--color-white); 
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px; 
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%; 
+}
+
+#main-footer h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+#main-footer p {
+    font-size: 0.9em;
+    margin: 5px 0;
+    color: var(--color-text-secondary);
+}
+
+.contact-phone {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* =============================================== */
+/* MODAL DE EDIÇÃO */
+/* =============================================== */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 10000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding-top: 50px;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    margin: 5% auto; 
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 600px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-btn-modal {
+    color: var(--color-dark-secondary);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn-modal:hover,
+.close-btn-modal:focus {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+#edit-profile-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#edit-profile-form input[type="text"],
+#edit-profile-form input[type="email"],
+#edit-profile-form input[type="number"],
+#edit-profile-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#edit-profile-form textarea {
+    resize: vertical; 
+}
+
+.save-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.photo-upload-section {
+    text-align: center;
+    padding: 10px 0;
+}
+.photo-upload-section img {
+    border: 3px solid var(--color-accent);
+}
+.photo-upload-section input[type="file"] {
+    width: 80%;
+    margin: 10px auto;
+}
+
+
+/* =============================================== */
+/* REGRAS DE RESPONSIVIDADE (MOBILE/TABLET)        */
+/* =============================================== */
+
+@media (max-width: 992px) {
+    
+    /* NAVBAR */
+    .nav-links { display: none; }
+    /* Reduzido padding para 20px para colar mais nas bordas no mobile */
+    .navbar { padding: 0 20px; justify-content: space-between; } 
+    
+    /* LAYOUT GERAL */
+    .content-wrapper {
+        flex-direction: column; 
+        padding: 15px; 
+        width: 100%; 
+        margin: 0; 
+    }
+    
+    /* SIDEBAR */
+    #sidebar-nav {
+        width: 100%;
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 15px;
+        margin-right: 0; 
+        margin-bottom: 20px;
+        box-sizing: border-box; 
+    }
+    
+    /* INFO PESSOAL */
+    .profile-info {
+        text-align: left;
+        display: flex;
+        align-items: center;
+        width: 100%; 
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--color-dark-bg);
+        margin-bottom: 15px;
+    }
+    
+    .profile-avatar {
+        width: 60px; 
+        height: 60px;
+        margin: 0 10px 0 0; 
+        flex-shrink: 0; 
+    }
+    
+    .profile-info p {
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    /* BOTÕES DE AÇÃO */
+    .action-buttons {
+        flex-direction: row; 
+        width: 100%;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    .action-buttons button {
+        flex-grow: 1; 
+    }
+    
+    /* LINKS SECUNDÁRIOS */
+    .secondary-nav {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 8px; 
+    }
+    
+    .secondary-nav a {
+        flex: 1 1 auto; 
+        text-align: center;
+        border-bottom: none;
+        padding: 8px 10px; 
+        background-color: var(--color-dark-bg); 
+        border-radius: 4px;
+        color: var(--color-text-secondary);
+        font-size: 0.85em;
+        white-space: normal; 
+    }
+    
+    /* CARD PRINCIPAL */
+    .profile-card {
+        padding: 20px 15px;
+    }
+}
+
+/* Ajustes finos para telas muito pequenas */
+@media (max-width: 576px) {
+    
+    .action-buttons {
+        flex-direction: column; 
+    }
+    
+    .action-btn {
+        width: 100%;
+    }
+    
+    .secondary-nav a {
+        flex-basis: 45%; 
+        font-size: 0.8em;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+}

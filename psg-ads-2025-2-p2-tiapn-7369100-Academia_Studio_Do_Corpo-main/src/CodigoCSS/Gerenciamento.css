@@ -1,0 +1,750 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f7f7f7;
+  color: #262626;
+}
+
+/* ---------- CABEÇALHO ---------- */
+/* ----- HEADER ----- */
+header {
+  background-color: #00010d;
+  padding: 10px 40px;
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* logo esquerda / menu meio / botão direita */
+  align-items: center;
+  color: #f7f7f7;
+  height: 80px;
+  position: relative;
+}
+
+/* LOGO */
+.logo img {
+  height: 60px;
+  width: auto;
+}
+
+/* ----- MENU CENTRAL REALMENTE NO MEIO ----- */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+
+  /* ALINHAR À DIREITA */
+  margin-left: auto;
+
+  /* REMOVE QUALQUER CENTRALIZAÇÃO */
+  position: static;
+  transform: none;
+}
+
+
+.nav-links li a {
+  text-decoration: none;
+  color: #f7f7f7;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffb600;
+}
+
+/* ----- BOTÃO LATERAL ----- */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 30px;
+  cursor: pointer;
+
+  /* AUMENTAR ESPAÇO ENTRE O MENU E OS LINKS */
+  margin-left: 35px;
+}
+
+.menu-btn:hover {
+  color: #ffb600;
+  background: none; 
+}
+
+/* ===== MENU LATERAL DESLIZANTE ===== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100%;
+  background-color: #00010d;
+  padding: 25px;
+  color: white;
+  transition: right 0.3s ease;
+  z-index: 9999;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+/* Botão de fechar */
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 20px;
+}
+
+.close-btn:hover {
+  color: #ffb600;
+}
+
+/* Lista do menu lateral */
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.side-menu ul li {
+  margin: 20px 0;
+}
+
+.side-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  white-space: nowrap; /* impede quebra de linha */
+  display: inline-block; /* garante que o nowrap funcione corretamente */
+}
+
+.side-menu ul li a:hover {
+  color: #ffb600;
+}
+/* final do header */
+
+/* ---------- CONTEÚDO PRINCIPAL ---------- */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #00010d;
+  margin-bottom: 30px;
+}
+
+/* ---------- SEÇÕES ---------- */
+.section-box {
+  margin-bottom: 50px;
+}
+
+.section-box h2 {
+  color: #00010d;
+  border-left: 6px solid #ffb600;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* ---------- TABELA DE ALUNOS ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #00010d;
+  color: #fff;
+  font-weight: 500;
+}
+
+td {
+  background-color: #fff;
+}
+
+tr:nth-child(even) td {
+  background-color: #f3f3f3;
+}
+
+/* ---------- BOTÕES ---------- */
+button {
+  background-color: #ffb600;
+  color: #00010d;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #dca200;
+  transform: scale(1.05);
+}
+
+/* ---------- MODAL DE GERENCIAR ALUNO ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.gerenciar-modal {
+  background:#fff;
+  padding:30px 25px;
+  border-radius:15px;
+  max-width:550px;
+  width:90%;
+  position:relative;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gerenciar-modal .close {
+  position:absolute; 
+  top:15px; 
+  right:20px; 
+  font-size:28px; 
+  cursor:pointer;
+  color:#00010d;
+  transition: 0.3s;
+}
+
+.gerenciar-modal .close:hover {
+  color:#ffb600;
+  transform: scale(1.2);
+}
+
+.gerenciar-modal h2 {
+  text-align:center;
+  color:#00010d;
+  margin-bottom:15px;
+  font-size:24px;
+}
+
+/* GRID DE CAMPOS */
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-field label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #00010d;
+}
+
+.modal-field input,
+.modal-field select {
+  padding:8px 10px;
+  border-radius:8px;
+  border:2px solid #ffb600;
+  font-size:16px;
+  transition: 0.3s;
+}
+
+.modal-field input:focus,
+.modal-field select:focus {
+  outline:none;
+  border-color:#00010d;
+}
+
+.modal-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.checkbox-group label {
+  margin-bottom: 6px;
+  background:#f9f9f9;
+  padding:6px 12px;
+  border-radius:8px;
+  border:2px solid #ffb600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.checkbox-group label:hover {
+  border-color:#dca200;
+  transform: scale(1.05);
+}
+
+/* BOTÃO DE SALVAR MODAL */
+.gerenciar-modal .btn-salvar {
+  align-self: center;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #ffb600;
+  color: #00010d;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gerenciar-modal .btn-salvar:hover {
+  background-color: #dca200;
+  transform: scale(1.05);
+}
+
+/* ---------- FORMULÁRIO DE IMAGENS / CARROSSEL ---------- */
+.form-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.img-group {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.img-group label {
+  font-weight: 500;
+  color: #00010d;
+}
+
+.img-group input[type="file"] {
+  cursor: pointer;
+}
+
+.preview {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  transition: 0.3s;
+}
+
+.preview:hover {
+  transform: scale(1.05);
+  border-color: #ffb600;
+}
+
+/* ---------- CARDS DE VALORES, PLANOS E SERVIÇOS ---------- */
+.cards-edicao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-edicao {
+  flex: 1 1 30%;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card-edicao:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.card-edicao h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #00010d;
+}
+
+.card-edicao input,
+.card-edicao select {
+  width: 80%;
+  padding: 8px;
+  border: 2px solid #ffb600;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card-edicao input:focus,
+.card-edicao select:focus {
+  outline: none;
+  border-color: #00010d;
+}
+
+.card-edicao select {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* ---------- BOTÕES GERAIS ---------- */
+.btn-salvar, #salvarImagens, form button[type="submit"] {
+  display: block;
+  margin: 25px auto 0;
+  background-color: #ffb600;
+  color: #00010d;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.btn-salvar:hover,
+#salvarImagens:hover,
+form button[type="submit"]:hover {
+  background-color: #dca200;
+  transform: scale(1.05);
+}
+
+/* ---------- INPUT DE PESQUISA ---------- */
+.input-pesquisa {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.input-pesquisa:focus {
+  outline: none;
+  border-color: #00010d;
+}
+
+/* ---------- MODAL / FORMULÁRIO CRIAR ALUNO ---------- */
+.form-criar-aluno {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-criar-aluno h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00010d;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: #00010d;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  border-top: 3px solid #ffb600;
+}
+
+/* ---------- CHECKBOXES DE PLANOS ---------- */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 2px solid #ffb600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  background: #f9f9f9;
+  transition: 0.3s;
+}
+
+.checkbox-group input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-group label:hover {
+  border-color: #dca200;
+  transform: scale(1.05);
+}
+
+/* ----- MELHORIAS DO MENU DE ABAS ----- */
+
+/* Aba fixa abaixo do header */
+.aba-wrapper {
+  background: #f7f7f7;
+  padding: 12px 0;
+  border-bottom: 2px solid #eee;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container interno das abas */
+.tabs {
+  display: flex;
+  gap: 12px;
+  padding: 8px 15px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Botões das abas */
+.tab-btn {
+  padding: 10px 22px;
+  background: #00010d;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.tab-btn:hover {
+  background: #ffb600;
+  color: #00010d;
+  transform: translateY(-2px);
+}
+
+/* Aba ativa */
+.tab-btn.active {
+  background: #ffb600;
+  color: #00010d;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Conteúdo suave */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ————————————————————————————————
+        🌎 RESPONSIVIDADE MOBILE CONSOLIDADA
+——————————————————————————————— */
+
+/* ---------------------- Até 900px ---------------------- */
+@media (max-width: 900px) {
+  .form-linha,
+  .filtros {
+    flex-direction: column;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .cards-edicao {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card-edicao {
+    width: 100% !important;
+  }
+
+  .img-group,
+  .form-section {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+/* ---------------------- Até 768px ---------------------- */
+@media (max-width: 768px) {
+  /* Menu lateral */
+  .nav-links {
+    display: none; /* esconde links grandes */
+  }
+
+  .menu-btn {
+    display: block; /* mostra botão lateral */
+    font-size: 32px;
+    padding: 8px 12px;
+    order: 2; /* mantém à direita */
+    margin-left: 0;
+  }
+
+  /* Logo menor */
+  .logo img {
+    height: 50px;
+  }
+
+  /* Navbar ajustada */
+  .navbar {
+    padding: 0 10px;
+    justify-content: space-between; /* logo à esquerda, botão à direita */
+  }
+
+  /* Container principal */
+  .container {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Cards e seções */
+  .cards-edicao,
+  .card-edicao,
+  .img-group,
+  .form-section {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  /* Tabela responsiva */
+  .container-tabela {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    width: 100%;
+    min-width: 600px; /* garante largura mínima */
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+
+  /* Abas */
+  .tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ---------------------- Até 600px ---------------------- */
+@media (max-width: 600px) {
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .titulo-secao {
+    font-size: 20px;
+  }
+
+  .box {
+    padding: 15px;
+  }
+
+  input,
+  select {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  table {
+    min-width: 0; /* permite encolher */
+  }
+}
+
+/* ---------------------- Até 450px ---------------------- */
+@media (max-width: 450px) {
+  table {
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+  }
+
+  .container,
+  .container-tabela {
+    padding: 10px;
+  }
+
+  .tabs {
+    gap: 8px;
+  }
+}
+
+/* ---------------------- Geral para evitar corte ---------------------- */
+.container,
+.container-tabela,
+.cards-edicao,
+.card-edicao,
+.form-section,
+header,
+.navbar,
+.side-menu,
+.tabs {
+  max-width: 100%;
+  min-width: 0; /* evita overflow */
+  box-sizing: border-box;
+}

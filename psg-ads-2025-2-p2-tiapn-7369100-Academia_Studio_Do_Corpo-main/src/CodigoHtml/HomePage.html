@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planos - Studio do Corpo</title>
+  <link rel="stylesheet" href="../CodigoCSS/HomePage.css">
+  <link rel="icon" href="/src/Imagens/Logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar" id="inicio">
+      <div class="logo">
+        <a href="/src/CodigoHtml/HomePage.html">
+            <img src="/src/Imagens/Logo.png" alt="Logo Studio do Corpo">
+        </a>
+      </div>
+      <ul class="nav-links desktop-menu">
+        <li><a href="/src/CodigoHtml/HomePage.html">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="https://www.instagram.com/fechadocomstudiodocorpo/" target="_blank">Instagram</a></li>
+      </ul>
+      <button class="menu-btn" id="menuBtn">≡</button>
+      <nav class="side-menu" id="sideMenu">
+        <button class="close-btn" id="closeMenu">×</button>
+        <h2 class="menu-title">Menu</h2>
+        <ul>
+          <li><a href="/src/CodigoHtml/PerfilAluno.html">Visualizar Perfil</a></li>
+          <li><a href="/ficha.html">Ficha de Treino</a></li>
+          <li><a href="/avaliacao.html">Avaliação Física</a></li>
+          <li class="menu-divider"></li>
+          <li><a href="/src/CodigoHtml/HomePage.html">Página Inicial</a></li>
+          <li><a href="https://www.instagram.com/fechadocomstudiodocorpo/" target="_blank">Nosso Instagram</a></li>
+        </ul>
+      </nav>
+    </nav>
+  </header>
+
+<main>
+
+  <!-- ---------- banner principal em carrosel ---------- -->
+<div id="inicio" class="banner-section">
+  <div class="side-banner left-banner">
+    <img src="/src/imagens/3esquerda.jpg" alt="Treino lateral esquerdo">
+  </div>
+
+  <div class="carousel">
+    <button class="prev">&#10094;</button>
+    <div class="carousel-images">
+      <img src="/src/imagens/academia1.jpg" alt="Treino 1">
+      <img src="/src/imagens/academia2.jpg" alt="Treino 2">
+      <img src="/src/imagens/academia3.jpg" alt="Treino 3">
+    </div> 
+    <button class="next">&#10095;</button>
+  </div>
+
+  <div class="side-banner right-banner">
+    <img src="/src/imagens/3direita.jpg" alt="Treino lateral direito">
+  </div>
+</div>
+
+  <!-- ---------- MENSALIDADES ---------- -->
+  <div id="servicos" class="cards">
+    <h2 class="section-title">Mensalidades</h2>
+
+    <div class="card card-modalidade">
+      <h3>Musculação 7x/semana</h3>
+      <p class="valor">R$ 90,00</p>
+     <button>Saber mais</button>
+    </div>
+
+    <div class="card card-modalidade">
+      <h3>Musculação 3x/semana</h3>
+      <p class="valor">R$ 70,00</p>
+      <button>Saber mais</button>
+    </div>
+
+    <div class="card card-modalidade">
+      <h3>Funcional 2x/semana</h3>
+      <p class="valor">R$ 110,00</p>
+      <button>Saber mais</button>
+    </div>
+  </div>
+
+  <!-- ---------- PLANOS ---------- -->
+  <section class="cards">
+    <h2 class="section-title">Planos</h2>
+
+    <div class="card card-plano">
+      <h3>Trimestral</h3>
+      <p class="valor">R$ 255,00</p>
+      <ul><li>✔ Acesso completo</li></ul>
+      <button>Saber mais</button>
+    </div>
+
+    <div class="card card-plano destaque">
+      <h3>Semestral</h3>
+      <p class="valor">R$ 510,00</p>
+      <ul><li>✔ Melhor custo-benefício</li></ul>
+      <button>Saber mais</button>
+    </div>
+
+    <div class="card card-plano">
+      <h3>Anual</h3>
+      <p class="valor">R$ 960,00</p>
+      <ul><li>✔ Descontos exclusivos</li></ul>
+      <button>Saber mais</button>
+    </div>
+
+    <div class="card card-plano">
+      <h3>Pacote Funcional</h3>
+      <p class="valor">R$ 90,00</p>
+      <ul><li>✔ Funcional 2x/semana</li></ul>
+      <button>Saber mais</button>
+    </div>
+  </section>
+
+  <!-- ---------- SERVIÇOS ---------- -->
+  <section class="cards">
+    <h2 class="section-title">Serviços Adicionais</h2>
+
+    <div class="card card-servico">
+      <h3>Avaliação Física</h3>
+      <p class="valor">R$ 65,00</p>
+    </div>
+
+    <div class="card card-servico">
+      <h3>Inscrição</h3>
+      <p class="valor">R$ 15,00</p>
+    </div>
+
+    <div class="card card-servico">
+      <h3>Treino Avulso</h3>
+      <p class="valor">R$ 20,00</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <h2>Contato e Horário</h2>
+  <p>📞 Telefone: 31 3432-3500</p>
+  <p>🕒 Segunda a sexta: 5h30 às 22h | Sábado e domingo: 8h às 12h</p>
+  <p>© 2025 - Todos os direitos reservados | Studio do Corpo</p>
+</footer>
+
+<script src="../CodigoJS/HomePage.js"></script>
+<script src="/src/CodigoJS/menuLateral.js"></script>
+
+</body>
+</html>
