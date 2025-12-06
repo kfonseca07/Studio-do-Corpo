@@ -59,18 +59,18 @@ form.addEventListener("submit", async (event) => {
 
   //   ENVIAR OS DADOS PARA O BACKEND 
   try {
-    const resposta = await fetch("http://localhost:3000/cadastro", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        nome,
-        celular,
-        idade,
-        email,
-        cpf,
-        infoMedicas
-      })
-    });
+const resposta = await fetch("/api/cadastro", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    nome,
+    celular,
+    idade,
+    email,
+    cpf,
+    infoMedicas
+  })
+});
 
     const resultado = await resposta.json();
 
